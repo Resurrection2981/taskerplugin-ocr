@@ -39,5 +39,5 @@ jobs:
       - name: Archive APK
         uses: actions/upload-artifact@v2
         with:
-          name: OCR-debug-${{ env.TAG_NAME }}.apk  # Include tag in the APK file name
-          path: app/build/outputs/apk/debug/*.apk
+          name: OCR-arm64-v8a-debug-${{ env.TAG_NAME }}.apk
+          path: app/build/outputs/apk/debug/app-arm64-v8a-debug.apk
