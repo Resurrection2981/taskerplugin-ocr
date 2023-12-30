@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Tasker Plugin OCR</string>
+    <string name="key_grayscale" translatable="false">key_grayscale</string>
+    <string name="key_contrast" translatable="false">process_contrast</string>
+    <string name="key_un_sharp_masking" translatable="false">un_sharp_mask</string>
+    <string name="key_otsu_threshold" translatable="false">otsu_threshold</string>
+    <string name="key_find_skew_and_deskew" translatable="false">deskew_img</string>
+    <string name="key_adaptive_threshold" translatable="false">adaptive_threshold</string>
+    <string name="key_persist_data" translatable="false">persist_data</string>
+    <string name="grayscale_summary">Displays images using shades of gray without color</string>
+    <string name="contrast_summary">Adaptively attempts to expand the contrast to the full dynamic range</string>
+    <string name="un_sharp_masking_summary">Performs unsharp masking (edge enhancement) of image</string>
+    <string name="otsu_summary">Performs locally-adaptive Otsu threshold binarization of image</string>
+    <string name="deskew_summary">Find the Skew and Deskew the Image</string>
+    <string name="adaptive_summary">Perform adaptive threshold of image</string>
+    <string name="persist_data_summary">Save the image with drawn rectangular boxes and text</string>
+    <string name="grayscale_title">Grayscale</string>
+    <string name="perform_contrast">Enhance Contrast</string>
+    <string name="un_sharp_masking">Un-Sharp Masking</string>
+    <string name="otsu_threshold">OTSU Threshold</string>
+    <string name="deskew_image">Deskew Image</string>
+    <string name="adaptive_threshold_title">Adaptive Threshold</string>
+    <string name="key_adaptive_threshold_configuration" translatable="false">adaptive_threshold_configuration</string>
+    <string name="adaptive_threshold_configuration_title">Adaptive Threshold Configuration</string>
+    <string name="persist_data_title">Save data</string>
+    <string name="image_path_name">Image Absolute Path</string>
+    <string name="image_path_name_title">Image path</string>
+    <string name="image_path_name_description">The absolute path of the image</string>
+    <string name="hint_image_path_name">Image path must not be null or blank</string>
+    <string name="result">Text Result</string>
+    <string name="result_description">If text is recognized, contains the text results</string>
+    <string name="result_variable_name">Rename Result Variable</string>
+    <string name="result_variable_name_title">Result variable name</string>
+    <string name="result_variable_name_description">Optional result variable name</string>
+    <string name="coordinates">TextBlock Coordinates</string>
+    <string name="coordinates_description">If text is recognized, contains the key-value pairs of TextBlock and coordinates</string>
+    <string name="text">Recognized Text</string>
+    <string name="text_description">If text is recognized, extracts raw information from the recognized text</string>
+    <string name="settings_entrance_title">Settings</string>
+    <string name="adaptive_threshold_max_value_title">Adaptive threshold max value</string>
+    <string name="key_adaptive_threshold_max_value" translatable="false">key_adaptive_threshold_max_value</string>
+    <string name="value_adaptive_threshold_max_value_default">200.0</string>
+    <string name="adaptive_threshold_method_title">Adaptive threshold method</string>
+    <string name="key_adaptive_threshold_method" translatable="false">key_adaptive_threshold_method</string>
+    <string name="value_adaptive_threshold_method_default">0</string>
+    <string name="adaptive_threshold_type_title">Adaptive threshold type</string>
+    <string name="key_adaptive_threshold_type" translatable="false">key_adaptive_threshold_type</string>
+    <string name="value_adaptive_threshold_type_default">0</string>
+    <string name="adaptive_threshold_block_size_title">Adaptive threshold block size</string>
+    <string name="key_adaptive_threshold_block_size" translatable="false">key_adaptive_threshold_block_size</string>
+    <string name="value_adaptive_threshold_block_size_default">25</string>
+    <string name="adaptive_threshold_mean_title">Adaptive threshold mean</string>
+    <string name="key_adaptive_threshold_mean" translatable="false">key_adaptive_threshold_mean</string>
+    <string name="value_adaptive_threshold_mean_default">10.0</string>
+    <string name="hint_adaptive_threshold_max_value">Assign a non-zero value</string>
+    <string name="hint_adaptive_threshold_block_size">The value must be odd and greater than 1</string>
+</resources>

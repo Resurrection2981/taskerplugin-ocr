@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/key_grayscale"
+        android:title="@string/grayscale_title"
+        android:summary="@string/grayscale_summary"
+        app:iconSpaceReserved="false"/>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/key_contrast"
+        android:title="@string/perform_contrast"
+        app:summary="@string/contrast_summary"
+        app:dependency="@string/key_grayscale"
+        app:iconSpaceReserved="false"/>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/key_un_sharp_masking"
+        android:title="@string/un_sharp_masking"
+        app:summary="@string/un_sharp_masking_summary"
+        app:iconSpaceReserved="false"/>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/key_otsu_threshold"
+        android:title="@string/otsu_threshold"
+        app:summary="@string/otsu_summary"
+        app:dependency="@string/key_grayscale"
+        app:iconSpaceReserved="false"/>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/key_find_skew_and_deskew"
+        android:title="@string/deskew_image"
+        app:summary="@string/deskew_summary"
+        app:iconSpaceReserved="false"/>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/key_adaptive_threshold"
+        android:title="@string/adaptive_threshold_title"
+        app:summary="@string/adaptive_summary"
+        app:iconSpaceReserved="false"/>
+    <PreferenceScreen
+        android:fragment="io.github.sauvio.ocr.AdaptiveThresholdSubPreferenceFragment"
+        android:key="@string/key_adaptive_threshold_configuration"
+        android:title="@string/adaptive_threshold_configuration_title"
+        app:dependency="@string/key_adaptive_threshold"
+        app:iconSpaceReserved="false"/>
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/key_persist_data"
+        android:title="@string/persist_data_title"
+        app:summary="@string/persist_data_summary"
+        app:iconSpaceReserved="false"/>
+
+</PreferenceScreen>

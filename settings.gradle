@@ -1,0 +1,2 @@
+rootProject.name = "Tasker Plugin OCR"
+include ':app',':taskerpluginlibrary'

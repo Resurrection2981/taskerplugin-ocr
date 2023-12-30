@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <EditTextPreference
+        android:title="@string/adaptive_threshold_max_value_title"
+        android:key="@string/key_adaptive_threshold_max_value"
+        android:defaultValue="@string/value_adaptive_threshold_max_value_default"
+        android:inputType="number"
+        app:iconSpaceReserved="false"/>
+    <ListPreference
+        android:title="@string/adaptive_threshold_method_title"
+        android:key="@string/key_adaptive_threshold_method"
+        android:defaultValue="@string/value_adaptive_threshold_method_default"
+        android:entries="@array/key_adaptive_threshold_method_entries"
+        android:entryValues="@array/value_adaptive_threshold_method_entry_values"
+        app:iconSpaceReserved="false"/>
+    <ListPreference
+        android:title="@string/adaptive_threshold_type_title"
+        android:key="@string/key_adaptive_threshold_type"
+        android:defaultValue="@string/value_adaptive_threshold_type_default"
+        android:entries="@array/key_adaptive_threshold_type_entries"
+        android:entryValues="@array/value_adaptive_threshold_type_entry_values"
+        app:iconSpaceReserved="false"/>
+    <EditTextPreference
+        android:title="@string/adaptive_threshold_block_size_title"
+        android:key="@string/key_adaptive_threshold_block_size"
+        android:defaultValue="@string/value_adaptive_threshold_block_size_default"
+        android:inputType="number"
+        app:iconSpaceReserved="false"/>
+    <EditTextPreference
+        android:title="@string/adaptive_threshold_mean_title"
+        android:key="@string/key_adaptive_threshold_mean"
+        android:defaultValue="@string/value_adaptive_threshold_mean_default"
+        android:inputType="number"
+        app:iconSpaceReserved="false"/>
+
+</PreferenceScreen>

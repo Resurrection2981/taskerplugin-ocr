@@ -1,0 +1,129 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    def gitUrl = getRepositoryURL()
+    namespace 'io.github.sauvio.ocr'
+    compileSdk 34
+    defaultConfig {
+        applicationId "io.github.sauvio.ocr"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resValue "string", "github_url", gitUrl
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+
+        release {
+            resValue "string", "app_name", "OCR"
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+
+        debug {
+            debuggable true
+            ndk {
+                debugSymbolLevel 'FULL'
+            }
+            def workingBranch = getGitWorkingBranch()
+            def normalizedWorkingBranch = workingBranch.replaceFirst("^[^A-Za-z]+", "").replaceAll("[^0-9A-Za-z]+", "")
+
+            if (normalizedWorkingBranch.isEmpty() || workingBranch == "master" || workingBranch == "dev") {
+                applicationIdSuffix ".dev"
+                resValue "string", "app_name", "OCR Dev"
+            } else {
+                archivesBaseName = 'OCR_' + normalizedWorkingBranch
+                applicationIdSuffix ".dev." + normalizedWorkingBranch
+                resValue "string", "app_name", "OCR " + workingBranch
+            }
+
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include "x86", "x86_64", "armeabi-v7a", "arm64-v8a"
+            universalApk true
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation project(':taskerpluginlibrary')
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'androidx.preference:preference:1.2.0'
+
+    // To recognize Latin script
+    implementation 'com.google.mlkit:text-recognition:16.0.0'
+    // To recognize Chinese script
+    implementation 'com.google.mlkit:text-recognition-chinese:16.0.0'
+    implementation 'cz.adaptech.tesseract4android:tesseract4android-openmp:4.6.0'
+    implementation  'com.github.Sauvio:opencv-android:4.8.1'
+
+}
+
+static String getGitWorkingBranch() {
+    try {
+        def gitProcess = "git rev-parse --abbrev-ref HEAD".execute()
+        gitProcess.waitFor()
+        if (gitProcess.exitValue() == 0) {
+            return gitProcess.text.trim()
+        } else {
+            // .git not present
+            return ""
+        }
+    } catch (IOException ignored) {
+        // git is not installed
+        return ""
+    }
+}
+
+static String getRepositoryURL(){
+    try {
+        def gitProcess = "git config --get remote.origin.url".execute()
+        gitProcess.waitFor()
+        if (gitProcess.exitValue() == 0) {
+            return gitProcess.text.trim()
+        } else {
+            return ""
+        }
+    } catch (IOException ignored) {
+        return ""
+    }
+}

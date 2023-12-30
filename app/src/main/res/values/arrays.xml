@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="key_adaptive_threshold_method_entries">
+        <item>MEAN_C</item>
+        <item>GAUSSIAN_C</item>
+    </string-array>
+    <string-array name="value_adaptive_threshold_method_entry_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="key_adaptive_threshold_type_entries">
+        <item>BINARY</item>
+        <item>BINARY_INV</item>
+    </string-array>
+    <string-array name="value_adaptive_threshold_type_entry_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>
