@@ -1,6 +1,7 @@
 name: Android OCR tasker plugin CI
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
